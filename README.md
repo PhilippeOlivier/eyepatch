@@ -33,7 +33,7 @@ Finally, you will want to run this script periodically (ideally once per day), e
 
 The file you have assigned to the variable `track_file` should follow the following format:
 * One TV series per line.
-* On line, the name of the series, followed by the season number and the episode number you want to start tracking at.
+* On each line: The name of the series, followed by the season number and the episode number you want to start tracking at.
 
 #### Examples
 
