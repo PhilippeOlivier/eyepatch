@@ -237,7 +237,7 @@ notify() {
 	local series="$1"
 	local season="$(latest_tracked_season "$series")"
 	local episode="$(latest_tracked_episode "$series")"
-	curl -d "NEW: $(make_title "$series") S$(d_to_dd "$season")E$(d_to_dd "$episode")" ntfy.sh/${ntfy_topic}
+	curl -d "New episode: $(make_title "$series") S$(d_to_dd "$season")E$(d_to_dd "$episode")" ntfy.sh/${ntfy_topic}
 }
 
 
