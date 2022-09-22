@@ -16,8 +16,9 @@ tpb_names() {
 	#   tpb_names "only murders in the building s02e04"
 	local terms_raw="$1"
 	# Putting the search terms in lowercase mitigates interference from Cloudflare.
-	local terms=$(echo "$terms_raw" | tr [:upper:] [:lower:] | tr ' ' '+')
-	local results=$(curl -s "https://pirateproxy.surf/api?url=/q.php?q={$terms}&cat=")
+	local terms_sep_space=$(echo "$terms_raw" | tr [:upper:] [:lower:])
+	terms_sep_percentage20="${terms_sep_space// /%20}"
+	local results=$(curl -s "https://apibay.org/q.php?q={$terms_sep_percentage20}&cat=")
 	# If Cloudflare blocks the search, don't parse the results with `jq`.
 	if echo "$results" | grep -qi "cloudflare"; then
 		results="cloudflare"
